@@ -20,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -30,13 +31,14 @@ class Ui_InterfaceWindow
 {
 public:
     QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout_3;
     QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
     QWidget *World;
+    QVBoxLayout *verticalLayout_4;
+    QVBoxLayout *verticalLayout_2;
     QLabel *label_3;
     QPushButton *pushButton_2;
-    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QLabel *label_4;
     QLabel *labelAllPlants;
@@ -44,10 +46,11 @@ public:
     QLabel *labelAllHerbivores;
     QLabel *label_6;
     QLabel *labelAllCarnivores;
+    QSpacerItem *verticalSpacer;
     QPushButton *pauseButton;
     QWidget *tab_2;
     QLabel *label_2;
-    QWidget *layoutWidget1;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_3;
     QLabel *xDescription;
@@ -66,10 +69,10 @@ public:
         centralWidget = new QWidget(InterfaceWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         centralWidget->setMinimumSize(QSize(400, 400));
-        horizontalLayout_2 = new QHBoxLayout(centralWidget);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        verticalLayout_3 = new QVBoxLayout(centralWidget);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
@@ -84,63 +87,92 @@ public:
         tabWidget->setMinimumSize(QSize(200, 0));
         World = new QWidget();
         World->setObjectName(QStringLiteral("World"));
+        verticalLayout_4 = new QVBoxLayout(World);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         label_3 = new QLabel(World);
         label_3->setObjectName(QStringLiteral("label_3"));
-        label_3->setGeometry(QRect(10, 30, 171, 41));
+        label_3->setAlignment(Qt::AlignCenter);
+        label_3->setWordWrap(true);
+
+        verticalLayout_2->addWidget(label_3);
+
         pushButton_2 = new QPushButton(World);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-        pushButton_2->setGeometry(QRect(10, 70, 111, 23));
-        layoutWidget = new QWidget(World);
-        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 110, 171, 71));
-        gridLayout = new QGridLayout(layoutWidget);
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Maximum);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(pushButton_2->sizePolicy().hasHeightForWidth());
+        pushButton_2->setSizePolicy(sizePolicy1);
+        pushButton_2->setMinimumSize(QSize(0, 0));
+        pushButton_2->setBaseSize(QSize(150, 0));
+
+        verticalLayout_2->addWidget(pushButton_2);
+
+        gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        label_4 = new QLabel(layoutWidget);
+        label_4 = new QLabel(World);
         label_4->setObjectName(QStringLiteral("label_4"));
 
         gridLayout->addWidget(label_4, 0, 0, 1, 1);
 
-        labelAllPlants = new QLabel(layoutWidget);
+        labelAllPlants = new QLabel(World);
         labelAllPlants->setObjectName(QStringLiteral("labelAllPlants"));
 
         gridLayout->addWidget(labelAllPlants, 0, 1, 1, 1);
 
-        label_5 = new QLabel(layoutWidget);
+        label_5 = new QLabel(World);
         label_5->setObjectName(QStringLiteral("label_5"));
 
         gridLayout->addWidget(label_5, 1, 0, 1, 1);
 
-        labelAllHerbivores = new QLabel(layoutWidget);
+        labelAllHerbivores = new QLabel(World);
         labelAllHerbivores->setObjectName(QStringLiteral("labelAllHerbivores"));
 
         gridLayout->addWidget(labelAllHerbivores, 1, 1, 1, 1);
 
-        label_6 = new QLabel(layoutWidget);
+        label_6 = new QLabel(World);
         label_6->setObjectName(QStringLiteral("label_6"));
 
         gridLayout->addWidget(label_6, 2, 0, 1, 1);
 
-        labelAllCarnivores = new QLabel(layoutWidget);
+        labelAllCarnivores = new QLabel(World);
         labelAllCarnivores->setObjectName(QStringLiteral("labelAllCarnivores"));
 
         gridLayout->addWidget(labelAllCarnivores, 2, 1, 1, 1);
 
+
+        verticalLayout_2->addLayout(gridLayout);
+
+
+        verticalLayout_4->addLayout(verticalLayout_2);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_4->addItem(verticalSpacer);
+
         pauseButton = new QPushButton(World);
         pauseButton->setObjectName(QStringLiteral("pauseButton"));
-        pauseButton->setGeometry(QRect(10, 320, 171, 23));
+
+        verticalLayout_4->addWidget(pauseButton);
+
         tabWidget->addTab(World, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         label_2 = new QLabel(tab_2);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setGeometry(QRect(10, 20, 181, 41));
-        layoutWidget1 = new QWidget(tab_2);
-        layoutWidget1->setObjectName(QStringLiteral("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 70, 171, 81));
-        verticalLayout = new QVBoxLayout(layoutWidget1);
+        label_2->setAlignment(Qt::AlignCenter);
+        label_2->setWordWrap(true);
+        layoutWidget = new QWidget(tab_2);
+        layoutWidget->setObjectName(QStringLiteral("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 70, 171, 81));
+        verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -148,12 +180,12 @@ public:
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        xDescription = new QLabel(layoutWidget1);
+        xDescription = new QLabel(layoutWidget);
         xDescription->setObjectName(QStringLiteral("xDescription"));
 
         horizontalLayout_3->addWidget(xDescription);
 
-        xParameter = new QLabel(layoutWidget1);
+        xParameter = new QLabel(layoutWidget);
         xParameter->setObjectName(QStringLiteral("xParameter"));
 
         horizontalLayout_3->addWidget(xParameter);
@@ -164,12 +196,12 @@ public:
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        yDescription = new QLabel(layoutWidget1);
+        yDescription = new QLabel(layoutWidget);
         yDescription->setObjectName(QStringLiteral("yDescription"));
 
         horizontalLayout_4->addWidget(yDescription);
 
-        yParameter = new QLabel(layoutWidget1);
+        yParameter = new QLabel(layoutWidget);
         yParameter->setObjectName(QStringLiteral("yParameter"));
 
         horizontalLayout_4->addWidget(yParameter);
@@ -187,13 +219,13 @@ public:
         horizontalLayout->addWidget(graphicsView);
 
 
-        horizontalLayout_2->addLayout(horizontalLayout);
+        verticalLayout_3->addLayout(horizontalLayout);
 
         InterfaceWindow->setCentralWidget(centralWidget);
 
         retranslateUi(InterfaceWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(InterfaceWindow);
@@ -202,7 +234,7 @@ public:
     void retranslateUi(QMainWindow *InterfaceWindow)
     {
         InterfaceWindow->setWindowTitle(QApplication::translate("InterfaceWindow", "InterfaceWindow", Q_NULLPTR));
-        label_3->setText(QApplication::translate("InterfaceWindow", "Information about the world", Q_NULLPTR));
+        label_3->setText(QApplication::translate("InterfaceWindow", "World Information", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("InterfaceWindow", "Create New World", Q_NULLPTR));
         label_4->setText(QApplication::translate("InterfaceWindow", "Plants", Q_NULLPTR));
         labelAllPlants->setText(QApplication::translate("InterfaceWindow", "0", Q_NULLPTR));
