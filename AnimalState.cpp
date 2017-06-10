@@ -2,5 +2,5 @@
 
 AnimalState::AnimalState(AnimalStateSubject* subject) : subject(subject)
 {
-    //tutaj animacja!
+    //tutaj animacja! //haha, nie, to nie tutaj
 }

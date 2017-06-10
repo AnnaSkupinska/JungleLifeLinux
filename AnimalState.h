@@ -7,7 +7,7 @@
 class AnimalState
 {
 protected:
-  AnimalStateSubject* subject;    // interface do animal
+  AnimalStateSubject* subject;
 public:
   AnimalState(AnimalStateSubject* subject);
   virtual ~AnimalState() {}

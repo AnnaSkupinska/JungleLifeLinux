@@ -17,6 +17,9 @@ public:
   virtual bool isDead() const noexcept = 0;
   virtual bool isEaten() const noexcept = 0;
   virtual double& getStatistic(StatisticName) = 0;
+  virtual double getX() = 0;
+  virtual double getY() = 0;
+  virtual double getAngle() = 0;
 
   virtual void setX(double x) = 0;
   virtual void setY(double y) = 0;
