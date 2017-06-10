@@ -9,7 +9,10 @@ InterfaceWindow::InterfaceWindow(QWidget *parent) :
 {
   ui->setupUi(this);
   setFixedSize(800, 600);
-
+  QGraphicsScene * startScene = new QGraphicsScene();
+  QGraphicsTextItem *startText = startScene->addText("Create New World First");
+  startText->setPos(0, 0);
+  ui->graphicsView->setScene(startScene);
 }
 
 InterfaceWindow::~InterfaceWindow()
