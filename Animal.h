@@ -47,6 +47,9 @@ public:
   virtual double getSpeed() const noexcept;
   virtual bool isDead() const noexcept;
   virtual bool isEaten() const noexcept;
+  virtual double getX();
+  virtual double getY();
+  virtual double getAngle();
 
   virtual void setX(double x);
   virtual void setY(double y);
