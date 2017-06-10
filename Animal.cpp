@@ -57,6 +57,16 @@ bool Animal::isEaten() const noexcept
 
   return false;
 }
+double Animal::getX(){
+    return QGraphicsItem::pos().x();
+}
+double Animal::getY(){
+    return QGraphicsItem::pos().y();
+}
+double Animal::getAngle(){
+    return this->angle;
+    //return QGraphicsItem::rotation();
+}
 
 void Animal::setX(double x)
 {
